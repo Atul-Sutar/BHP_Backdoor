@@ -52,10 +52,6 @@ def exec(cmd):
         # return str(out)+str(err)
     return "Command Not Entered"
 
-
-
-args = parser.parse_args()
-
 def main(args):
     if args.listen:
         sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -163,6 +159,8 @@ if __name__ == "__main__":
     netcat.py -t  192.168.1.108 -p 5555 -l -e=\"cat /etc/passwd\" # execute command
     netcat.py -t  192.168.1.108 -p 5555  #  connect to server
     echo 'ABC' |  ./netcat.py -t 192.168.1.108 -p 135 # echo text to server port 135"""))
+    
+    args = parser.parse_args()
     
     parser.add_argument("-s","--shell",action='store_true',help='command shell')
     parser.add_argument('-e', '--execute', help='execute specified command')
